@@ -11,9 +11,11 @@ interface HomeProps {
     onChangeUsername: (newUsername: string) => void;
     onChangePassword: () => void;
     onChangeBio: (newBio: string) => void;
+    onLogout: () => void;
+    onDeleteAccount: () => void;
 }
 
-const Home: React.FC<HomeProps> = ({ user, onChangeUsername, onChangePassword, onChangeBio }) => {
+const Home: React.FC<HomeProps> = ({ user, onChangeUsername, onChangePassword, onChangeBio, onLogout, onDeleteAccount }) => {
     if (!user) throw new Error('User prop is required');
 
     const [editingUsername, setEditingUsername] = useState(false);
@@ -63,6 +65,18 @@ const Home: React.FC<HomeProps> = ({ user, onChangeUsername, onChangePassword, o
                         onClick={onChangePassword}
                     >
                         Change Password
+                    </button>
+                    <button
+                        className={`${styles.smallButton} ${styles.deleteButton}`}
+                        onClick={onDeleteAccount}
+                    >
+                        Delete Account
+                    </button>
+                    <button
+                        className={styles.smallButton}
+                        onClick={onLogout}
+                    >
+                        Logout
                     </button>
                 </div>
             </div>

@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from typing import Optional
 
 class UserCreate(BaseModel):
     username: str
@@ -7,6 +8,16 @@ class UserCreate(BaseModel):
 class UserRead(BaseModel):
     id: int
     username: str
+    bio: str
 
     class Config:
-        orm_mode = True 
+        from_attributes = True
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+class UserUpdate(BaseModel):
+    username: Optional[str] = None
+    password: Optional[str] = None
+    bio: Optional[str] = None

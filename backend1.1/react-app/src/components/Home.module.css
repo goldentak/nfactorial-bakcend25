@@ -54,6 +54,14 @@
     background-color: #1565c0;
 }
 
+.deleteButton {
+    background-color: #e94e77;
+}
+
+.deleteButton:hover {
+    background-color: #c43d62;
+}
+
 .bottomSection {
     flex: 0 0 67%;
     padding: 2rem;

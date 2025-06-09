@@ -24,8 +24,7 @@
 }
 
 .login-form input[type="text"],
-.login-form input[type="password"],
-.login-form input[type="submit"] {
+.login-form input[type="password"]{
     width: 100%;
     padding: 0.75rem;
     border: 1px solid #ccc;
@@ -34,14 +33,15 @@
     box-sizing: border-box;
 }
 
-.login-form input[type="submit"] {
-    background: #6B73FF;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background 0.3s ease;
+.login-form-btn, .register-form-btn {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
 }
 
-.login-form input[type="submit"]:hover {
-    background: #000DFF;
+.login-form-btn:hover, .register-form-btn:hover {
+    background: #afafaf;
 }
