@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.chat-messages {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.message-bubble {
+    max-width: 70%;
+    margin-bottom: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 1rem;
+    word-wrap: break-word;
+    background-color: #1e1e1e;
+}
+
+.message-bubble.user {
+    align-self: flex-end;
+    background-color: #1e88e5;
+    color: #fff;
+    border-bottom-right-radius: 0;
+}
+
+.message-bubble.bot {
+    align-self: flex-start;
+    background-color: #333;
+    color: #fff;
+    border-bottom-left-radius: 0;
+}
+
+.message-bubble.loading {
+    font-style: italic;
+    opacity: 0.7;
+}
+
+.chat-input-area {
+    flex: 0 0 auto;
+    display: flex;
+    padding: 1rem;
+    border-top: 1px solid #333;
+    background-color: #181818;
+}
+
+.chat-input-area input {
+    flex: 1;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    background-color: #1e1e1e;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.chat-input-area input:focus {
+    outline: 2px solid #1e88e5;
+}
+
+.chat-input-area button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #1e88e5;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    transition: background-color 0.2s;
+}
+
+.chat-input-area button:hover {
+    background-color: #1565c0;
+}

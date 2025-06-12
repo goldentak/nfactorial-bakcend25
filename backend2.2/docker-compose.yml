@@ -1,0 +1,62 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 3245
+      POSTGRES_DB: postgres
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+
+  redis:
+    image: redis:6
+    container_name: redis
+    ports:
+      - '6379:6379'
+
+  fastapi:
+    build: ./fastapi
+    container_name: fastapi_app_v2
+    env_file:
+      - .env
+    ports:
+      - '8000:8000'
+    depends_on:
+      - redis
+      - db
+
+  celery_worker:
+    build: ./fastapi
+    container_name: celery_worker
+    command: celery -A src.celery_app.celery_app worker --loglevel=info
+    env_file:
+      - .env
+    depends_on:
+      - redis
+      - db
+
+  celery_beat:
+    build: ./fastapi
+    container_name: celery_beat
+    command: celery -A src.celery_app.celery_app beat --loglevel=info
+    env_file:
+      - .env
+    depends_on:
+      - redis
+      - db
+
+  react:
+    build: ./react-app
+    container_name: react_app_v2
+    ports:
+      - '5173:5173'
+    environment:
+      - VITE_API_BASE=http://fastapi_app_v2:8000
+    depends_on:
+      - fastapi
+
+volumes:
+  db_data:
