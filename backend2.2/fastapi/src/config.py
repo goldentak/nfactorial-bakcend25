@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-DATABASE_URL = "postgresql://postgres:3245@db:5432/backendhw"
+DATABASE_URL = "postgresql://postgres:3245@db:5432/postgres"
 
 SECRET_KEY = os.getenv("JWT_SECRET_KEY", "CHANGE_ME_IN_PROD")
 ALGORITHM = os.getenv("JWT_ALGORITHM", "HS256")

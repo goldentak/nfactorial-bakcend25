@@ -5,7 +5,6 @@ from passlib.context import CryptContext
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
-# User CRUD
 
 def get_user_by_username(db: Session, username: str):
     return db.query(User).filter(User.username == username).first()
@@ -47,7 +46,6 @@ def delete_user(db: Session, user: User):
     db.commit()
 
 
-# FetchLog
 
 def save_fetched_data(db: Session, data: dict):
     obj = FetchLog(payload=data)
@@ -55,7 +53,6 @@ def save_fetched_data(db: Session, data: dict):
     db.commit()
 
 
-# Chat CRUD
 
 def create_chat_session(db: Session, user_id: int) -> ChatSession:
     session = ChatSession(user_id=user_id)
