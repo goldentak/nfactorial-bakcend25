@@ -1,4 +1,5 @@
-const API_BASE = import.meta.env.VITE_API_BASE as string || "http://localhost:8000";
+const API_BASE = import.meta.env.VITE_API_BASE;
+if (!API_BASE) throw new Error("VITE_API_BASE is not set");
 
 export function setAuthToken(token: string | null): void {
     if (token) {

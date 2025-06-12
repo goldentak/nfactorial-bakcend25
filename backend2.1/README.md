@@ -42,6 +42,8 @@ This repository contains a simple full-stack authentication application built wi
 * **POST** `/auth/login`: User login
 * **PATCH** `/auth/user`: Update user profile
 * **POST** `/auth/logout`: User logout
+* **DELETE** `/auth/user`: deletes user
+* **PATCH** `/auth/user`: updates user
 
 ### Default
 
