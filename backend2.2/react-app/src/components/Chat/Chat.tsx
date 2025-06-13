@@ -12,7 +12,6 @@ const Chat: React.FC<ChatProps> = ({ sessionId }) => {
     const [loading, setLoading] = useState(false);
     const endRef = useRef<HTMLDivElement>(null);
 
-    // use api client instead of raw fetch
     useEffect(() => {
         getMessages(sessionId)
             .then(setMessages)
@@ -28,10 +27,8 @@ const Chat: React.FC<ChatProps> = ({ sessionId }) => {
         if (!text) return;
         setLoading(true);
         try {
-            // add user message
             const userMsg = await sendMessage(sessionId, text);
             setMessages(ms => [...ms, userMsg]);
-            // get bot reply
             const botMsg = await sendMessage(sessionId, text);
             setMessages(ms => [...ms, botMsg]);
         } catch (err) {

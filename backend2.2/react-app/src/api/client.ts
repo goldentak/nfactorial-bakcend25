@@ -1,4 +1,4 @@
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://fastapi_app_v2:8000' || "http://165.227.152.212:8000";
+const API_BASE = import.meta.env.VITE_API_BASE || "http://165.227.152.212:8000";
 if (!API_BASE) throw new Error("VITE_API_BASE is not set");
 
 export interface ChatMessage {
