@@ -1,4 +1,4 @@
-# Backend 2.5
+# Backend 2.4
 AI voice assistant backend with web interface.
 
 ## Tech Stack
@@ -81,5 +81,5 @@ curl -X POST " http://localhost:8000/api/voice/process " -H "Content-Type: appli
 ```bash
 docker-compose up -d
 ```
-
+```
 Server: http://localhost:8000 Frontend: http://localhost:3000 ```
